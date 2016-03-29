@@ -1,4 +1,4 @@
-var bs = require("../app.js");
+var bs = require("../public/js/app.js");
 var chai = require('chai');
 var expect = chai.expect;
 

@@ -2,7 +2,7 @@
   "name": "bubble-sort",
   "version": "1.0.0",
   "description": "",
-  "main": "./js/app.js",
+  "main": "app.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --watch"
   },
@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/owen28299/bubble-sort#readme",
   "devDependencies": {
+    "browser-sync": "^2.11.2",
     "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
     "mocha": "^2.4.5"
   }
 }
