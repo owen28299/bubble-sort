@@ -1,4 +1,15 @@
-body {
-  background-color: red; }
-  body h1 {
-    color: purple; }
+#form {
+  display: block; }
+
+#sorts {
+  padding-top: 10px; }
+
+#numbers_list {
+  display: flex;
+  padding: 0px; }
+  #numbers_list li {
+    font-size: 12px;
+    padding: 5px;
+    margin: 1px;
+    list-style-type: none;
+    background-color: #8080ff; }

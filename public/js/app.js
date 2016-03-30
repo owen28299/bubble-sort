@@ -1,87 +1,104 @@
-function bubbleSortMoves(arr) {
+var numbersToSort;
+var isDone = false;
 
-  var bubbled = arr;
-  var count = 0;
-  var isDone = false;
+function randomList(){
+  var randArr = [];
+  for(var r = 1; r <= 30; r++){
+    randArr.push(r);
+  }
 
-  function pass(arr){
-    var swaps = 0;
+  randArr.forEach(function(element, index, array) {
+    var rindex = Math.floor(Math.random() * array.length);
+    var curr = randArr[index];
+    var other = randArr[rindex];
 
-    for (var i in arr){
-      var curr = arr[i];
-      var next = arr[Number(i) + 1];
+    randArr[index] = other;
+    randArr[rindex] = curr;
 
-      if (curr > next){
-        arr[i] = next;
-        arr[Number(i) + 1] = curr;
-        count++;
-        swaps++;
+  });
+
+  numbersToSort = randArr;
+
+  refresh();
+}
+
+function passInterval(){
+
+  var i = 0;
+  var stop = numbersToSort.length - 1;
+  var moves = 0;
+
+  function onePass() {
+    var curr = numbersToSort[i];
+    var next = numbersToSort[Number(i) + 1];
+
+    if (curr > next){
+      numbersToSort[i] = next;
+      numbersToSort[Number(i) + 1] = curr;
+      moves++;
+    }
+
+    i++;
+
+    refresh();
+
+    if(i === stop){
+
+      if(moves === 0){
+        isDone = true;
+        console.log('isDone', isDone);
       }
+
+      stopInterval();
+
+      if(isDone === false){
+        passInterval();
+      }
+
     }
-
-    if (swaps === 0){
-      isDone = true;
-    }
-
-    return arr;
-  }
-
-  while (isDone === false) {
-    pass(bubbled);
 
   }
 
-  return count;
+  var myInterval = setInterval(function(){
+    onePass();
+  }, 10);
+
+  function stopInterval(){
+    clearInterval(myInterval);
+  }
 
 }
 
+function parseInput(){
+  var myArray = document.getElementById('array').value;
 
+  myArray = myArray.split(",").map(function(element){
+    return JSON.parse(element);
+  });
 
-function changeArrayPrototype(){
+  return myArray;
+}
 
-  function bubbleSort(arr) {
+function refresh(){
+  document.getElementById("numbers_list").innerHTML = "";
 
-  var bubbled = arr;
-  var isDone = false;
-
-  function pass(arr){
-    var swaps = 0;
-
-    for (var i = 0; i < arr.length; i++){
-      var curr = arr[i];
-      var next = arr[Number(i) + 1];
-
-      if (curr > next){
-        arr[i] = next;
-        arr[Number(i) + 1] = curr;
-        swaps++;
-      }
-    }
-
-    if (swaps === 0){
-      isDone = true;
-    }
-
-    return arr;
-  }
-
-  while (isDone === false) {
-    pass(bubbled);
-
-  }
-
-  return bubbled;
-
-  }
-
-  Array.prototype.sortBubble = function(){
-    var arr = this;
-    return bubbleSort(arr);
-  };
+  numbersToSort.forEach(function(element){
+    var block = "<li style=height:" + 15 * element + "px;>" + element + "</li>";
+    document.getElementById("numbers_list").innerHTML += block;
+  });
 
 }
 
-module.exports = {
-  bubbleSortMoves : bubbleSortMoves,
-  changeArrayPrototype : changeArrayPrototype
-};
+document.getElementById('submit').addEventListener('click', function(){
+  numbersToSort = parseInput();
+  refresh();
+});
+
+document.getElementById('bubble_sort').addEventListener("click", function(){
+  isDone = false;
+  passInterval();
+});
+
+document.getElementById('random').addEventListener("click", function(){
+  randomList();
+});
