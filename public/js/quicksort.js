@@ -1,5 +1,3 @@
-var arrayvisual;
-
 function quickSort(arr){
 
   var arr1 = arr.slice();

@@ -1,5 +1,6 @@
 var bs = require("../public/js/bubblesort.js");
 var qs = require("../public/js/quicksort.js");
+var insertion = require("../public/js/insertionsort.js");
 var chai = require('chai');
 var expect = chai.expect;
 
@@ -55,6 +56,22 @@ describe('quick sort', function(){
 
   it('should sort the array', function(){
     expect(qs([3,5,7,8,9,11,13,15,2,1])).to.deep.equal([ 1, 2, 3, 5, 7, 8, 9, 11, 13, 15 ]);
+  });
+
+});
+
+describe('insertion sort', function(){
+
+  it('should be a function', function(){
+    expect(insertion).to.be.a('function');
+  });
+
+  it('should return an array', function(){
+    expect(insertion([3,2,1])).to.be.an('array');
+  });
+
+  it('should sort the array', function(){
+    expect(insertion([3,5,7,8,9,11,13,15,2,1])).to.deep.equal([ 1, 2, 3, 5, 7, 8, 9, 11, 13, 15 ]);
   });
 
 });
