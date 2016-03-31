@@ -63,7 +63,6 @@ function BubbleSort(){
 
   return {
     pass : pass,
-    passInterval : passInterval,
     bubbleSortMoves : bubbleSortMoves,
     bubbleSort : bubbleSort,
     changeArrayPrototype : changeArrayPrototype

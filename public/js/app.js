@@ -102,3 +102,7 @@ document.getElementById('bubble_sort').addEventListener("click", function(){
 document.getElementById('random').addEventListener("click", function(){
   randomList();
 });
+
+document.getElementById('quick_sort').addEventListener("click", function(){
+  console.log("in progress");
+});
