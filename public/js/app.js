@@ -22,53 +22,6 @@ function randomList(){
   refresh();
 }
 
-function passInterval(){
-
-  var i = 0;
-  var stop = numbersToSort.length - 1;
-  var moves = 0;
-
-  function onePass() {
-    var curr = numbersToSort[i];
-    var next = numbersToSort[Number(i) + 1];
-
-    if (curr > next){
-      numbersToSort[i] = next;
-      numbersToSort[Number(i) + 1] = curr;
-      moves++;
-    }
-
-    i++;
-
-    refresh();
-
-    if(i === stop){
-
-      if(moves === 0){
-        isDone = true;
-        console.log('isDone', isDone);
-      }
-
-      stopInterval();
-
-      if(isDone === false){
-        passInterval();
-      }
-
-    }
-
-  }
-
-  var myInterval = setInterval(function(){
-    onePass();
-  }, 10);
-
-  function stopInterval(){
-    clearInterval(myInterval);
-  }
-
-}
-
 function parseInput(){
   var myArray = document.getElementById('array').value;
 
@@ -96,13 +49,13 @@ document.getElementById('submit').addEventListener('click', function(){
 
 document.getElementById('bubble_sort').addEventListener("click", function(){
   isDone = false;
-  passInterval();
+  bubbleSort();
 });
 
 document.getElementById('random').addEventListener("click", function(){
   randomList();
 });
 
-document.getElementById('quick_sort').addEventListener("click", function(){
-  console.log("in progress");
+document.getElementById('insertion_sort').addEventListener("click", function(){
+  insertionSort();
 });

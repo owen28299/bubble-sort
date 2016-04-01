@@ -27,10 +27,9 @@ function selectionsort(arr){
 
   return sArr;
 
-
 }
 
-var tossort = [3,5,7,8,9,11,13,15,2,1];
+var tossort = [3,3,5,7,8,9,11,13,15,2,1];
 console.log('selectionsort(tossort)', selectionsort(tossort));
 
 var window = window || undefined;

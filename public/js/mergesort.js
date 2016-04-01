@@ -4,28 +4,28 @@ function mergesort(arr){
 
   var result = [];
 
-  while (left.length !== 0 && right.length !== 0){
-    if(left[0] <= right[0]){
+    while (left.length !== 0 && right.length !== 0){
+      if(left[0] <= right[0]){
+        result.push(left[0]);
+        left.shift();
+      }
+      else {
+        result.push(right[0]);
+        right.shift();
+      }
+    }
+
+    while (left.length !== 0){
       result.push(left[0]);
       left.shift();
     }
-    else {
+
+    while (right.length !== 0){
       result.push(right[0]);
       right.shift();
     }
-  }
 
-  while (left.length !== 0){
-    result.push(left[0]);
-    left.shift();
-  }
-
-  while (right.length !== 0){
-    result.push(right[0]);
-    right.shift();
-  }
-
-  return result;
+    return result;
 
   }
 

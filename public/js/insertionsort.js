@@ -29,5 +29,5 @@ if(!window){
 
 }
 
-var thisArr = [5,4,3,2,1];
+var thisArr = [0,-1,5,4,4,6,11,3,3,2,1];
 console.log('insertionsort(thisArr)', insertionsort(thisArr));
