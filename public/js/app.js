@@ -73,3 +73,12 @@ document.getElementById('insertion_sort').addEventListener("click", function(){
 document.getElementById('selection_sort').addEventListener("click", function(){
   selectionSort();
 });
+
+document.getElementById('quick_sort').addEventListener("click", function(){
+  quickSort();
+  quickRender();
+});
+
+document.getElementById('merge_sort').addEventListener("click", function(){
+  mergesort();
+});

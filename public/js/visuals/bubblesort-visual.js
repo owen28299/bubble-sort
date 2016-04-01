@@ -22,7 +22,6 @@ function bubbleSort(){
 
       if(moves === 0){
         isDone = true;
-        console.log('isDone', isDone);
       }
 
       stopInterval();
