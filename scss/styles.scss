@@ -1,4 +1,5 @@
 $maincolor: hsl(240,100%, 75%);
+$secondcolor: hsl(0,100%, 75%);
 
 #form {
   display: block;
@@ -22,3 +23,25 @@ $maincolor: hsl(240,100%, 75%);
   }
 }
 
+#numbers_list2 {
+  display: flex;
+
+  padding: 0px;
+
+  li {
+    font-size: 12px;
+    padding: 5px;
+    margin: 1px;
+    list-style-type: none;
+    background-color: $secondcolor;
+  }
+}
+
+#num_container {
+  position: relative;
+
+  #second_list {
+    position: absolute;
+    top: -16px;
+  }
+}

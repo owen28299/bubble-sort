@@ -1,5 +1,6 @@
 var numbersToSort;
 var isDone = false;
+var ssArray = [];
 
 function randomList(){
   var randArr = [];
@@ -39,7 +40,15 @@ function refresh(){
     var block = "<li style=height:" + 15 * element + "px;>" + element + "</li>";
     document.getElementById("numbers_list").innerHTML += block;
   });
+}
 
+function ssRefresh(){
+  document.getElementById("numbers_list2").innerHTML = "";
+
+  ssArray.forEach(function(element){
+    var block = "<li style=height:" + 15 * element + "px;>" + element + "</li>";
+    document.getElementById("numbers_list2").innerHTML += block;
+  });
 }
 
 document.getElementById('submit').addEventListener('click', function(){
@@ -53,9 +62,14 @@ document.getElementById('bubble_sort').addEventListener("click", function(){
 });
 
 document.getElementById('random').addEventListener("click", function(){
+  document.getElementById("numbers_list2").innerHTML = "";
   randomList();
 });
 
 document.getElementById('insertion_sort').addEventListener("click", function(){
   insertionSort();
+});
+
+document.getElementById('selection_sort').addEventListener("click", function(){
+  selectionSort();
 });

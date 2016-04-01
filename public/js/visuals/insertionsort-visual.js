@@ -25,9 +25,11 @@ function insertionSort(){
 
   }
 
-  var once = setInterval(function(){
-    onepass();
-  },10);
+  if(numbersToSort !== undefined && numbersToSort.length !== 0) {
+    var once = setInterval(function(){
+      onepass();
+    },10);
+  }
 
   function stopInterval(){
     clearInterval(once);

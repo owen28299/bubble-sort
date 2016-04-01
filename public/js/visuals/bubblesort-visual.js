@@ -35,9 +35,11 @@ function bubbleSort(){
 
   }
 
-  var myInterval = setInterval(function(){
-    onePass();
-  }, 10);
+  if(numbersToSort !== undefined && numbersToSort.length !== 0) {
+    var myInterval = setInterval(function(){
+      onePass();
+    }, 10);
+  }
 
   function stopInterval(){
     clearInterval(myInterval);
